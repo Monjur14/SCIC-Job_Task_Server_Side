@@ -5,8 +5,12 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 
-//Middleware
-app.use(cors());
+const corsOption = {
+  origin: ["http://localhost:5173"],
+  credentials: true,
+  optionSuccessStatus: 200,
+};         
+app.use(cors(corsOption));
 app.use(express.json());
 
 
